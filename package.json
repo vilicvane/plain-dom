@@ -19,6 +19,8 @@
     "test": "pnpm lint-prettier && pnpm build && pnpm lint && pnpm bare-test"
   },
   "dependencies": {
+    "@types/jsdom": "^21.1.6",
+    "jsdom": "^23.2.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

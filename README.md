@@ -3,9 +3,25 @@
 [![MIT License](https://img.shields.io/badge/license-MIT-999999?style=flat-square)](./LICENSE)
 [![Discord](https://img.shields.io/badge/chat-discord-5662f6?style=flat-square)](https://discord.gg/wEVn2qcf8h)
 
-# plain-dom
+# PlainDOM
 
 Serialize DOM to plain object or vice versa.
+
+## Installation
+
+```sh
+npm install plain-dom
+```
+
+## Usage
+
+```ts
+import {toDOM, toPlain} from 'plain-dom';
+
+const object = toPlain(node);
+
+const node = toDOM(object);
+```
 
 ## License
 
