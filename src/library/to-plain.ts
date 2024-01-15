@@ -1,7 +1,7 @@
 import {NodeType} from './dom.js';
 import type {PlainAttribute, PlainNode} from './plain.js';
 
-export function domToPlain(node: Node): PlainNode {
+export function toPlain(node: Node): PlainNode {
   const {nodeType, nodeValue, childNodes} = node;
 
   switch (nodeType) {
@@ -45,7 +45,7 @@ export function domToPlain(node: Node): PlainNode {
     childNodes: NodeListOf<ChildNode>,
   ): PlainNode[] | undefined {
     return childNodes.length > 0
-      ? Array.from(childNodes, childNode => domToPlain(childNode))
+      ? Array.from(childNodes, childNode => toPlain(childNode))
       : undefined;
   }
 }

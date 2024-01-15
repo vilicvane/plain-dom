@@ -1,6 +1,6 @@
 import {JSDOM} from 'jsdom';
 
-import {NodeType, type PlainNode, domToPlain, toDOM} from '../library/index.js';
+import {NodeType, type PlainNode, toDOM, toPlain} from '../library/index.js';
 
 const {
   window: {document},
@@ -33,7 +33,7 @@ test('plain to dom to plain', () => {
 
   const node = toDOM(object, document);
 
-  const object_2 = domToPlain(node);
+  const object_2 = toPlain(node);
 
   expect(object_2).toEqual(object);
 
