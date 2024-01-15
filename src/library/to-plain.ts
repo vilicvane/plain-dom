@@ -1,5 +1,5 @@
 import {NodeType} from './dom.js';
-import type {PlainAttribute, PlainNode} from './plain.js';
+import type {PlainAttributes, PlainNode} from './plain.js';
 
 export function toPlain(node: Node): PlainNode {
   const {nodeType, nodeValue, childNodes} = node;
@@ -33,11 +33,11 @@ export function toPlain(node: Node): PlainNode {
 
   function attributesToPlain(
     attributes: NamedNodeMap,
-  ): PlainAttribute[] | undefined {
+  ): PlainAttributes | undefined {
     return attributes.length > 0
-      ? Array.from(attributes, ({name, value}) => {
-          return {name, value};
-        })
+      ? Object.fromEntries(
+          Array.from(attributes, ({name, value}) => [name, value]),
+        )
       : undefined;
   }
 

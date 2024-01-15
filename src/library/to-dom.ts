@@ -1,5 +1,5 @@
 import {NodeType} from './dom.js';
-import type {PlainAttribute, PlainNode} from './plain.js';
+import type {PlainAttributes, PlainNode} from './plain.js';
 
 export function toDOM(object: PlainNode, document = window.document): Node {
   switch (object.type) {
@@ -25,10 +25,12 @@ export function toDOM(object: PlainNode, document = window.document): Node {
 
   function withAttributes(
     node: Element,
-    attributes: PlainAttribute[] | undefined,
+    attributes: PlainAttributes | undefined,
   ): Element {
-    for (const {name, value} of attributes ?? []) {
-      node.setAttribute(name, value);
+    if (attributes) {
+      for (const [name, value] of Object.entries(attributes)) {
+        node.setAttribute(name, value);
+      }
     }
 
     return node;
@@ -38,8 +40,10 @@ export function toDOM(object: PlainNode, document = window.document): Node {
     node: Node,
     childNodes: PlainNode[] | undefined,
   ): Node {
-    for (const child of childNodes ?? []) {
-      node.appendChild(toDOM(child, document));
+    if (childNodes) {
+      for (const child of childNodes) {
+        node.appendChild(toDOM(child, document));
+      }
     }
 
     return node;

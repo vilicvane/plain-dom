@@ -15,12 +15,9 @@ test('plain to dom to plain', () => {
       {
         type: NodeType.Element,
         name: 'div',
-        attributes: [
-          {
-            name: 'id',
-            value: 'foo',
-          },
-        ],
+        attributes: {
+          id: 'foo',
+        },
         childNodes: [
           {
             type: NodeType.Text,

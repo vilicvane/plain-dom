@@ -2,7 +2,7 @@ export type PlainNode =
   | {
       type: typeof Node.ELEMENT_NODE;
       name: string;
-      attributes: PlainAttribute[] | undefined;
+      attributes: PlainAttributes | undefined;
       childNodes: PlainNode[] | undefined;
     }
   | {
@@ -22,7 +22,4 @@ export type PlainNode =
       childNodes: PlainNode[] | undefined;
     };
 
-export type PlainAttribute = {
-  name: string;
-  value: string;
-};
+export type PlainAttributes = Record<string, string>;
